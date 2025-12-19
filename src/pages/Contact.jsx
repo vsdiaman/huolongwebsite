@@ -1,40 +1,92 @@
 import React from "react";
+import { Helmet } from "react-helmet";
+import { PixelButton } from "../components/PixelButton";
+import { PixelCard } from "../components/PixelCard";
 
-function Contact() {
+export default function Contact() {
   return (
-    <div className="max-w-3xl mx-auto px-4 text-center">
-      <section id="contact" className="my-12">
-        <h3 className="text-xl text-huolongRed font-pixel mb-4">Contact</h3>
-        <p className="mb-4 font-pixel">Sign up for updates:</p>
+    <>
+      <Helmet>
+        <title>Contact | Huolong Apps</title>
+        <meta
+          name="description"
+          content="Contact Huolong Apps for quotes and mobile app projects."
+        />
+      </Helmet>
 
-        <form
-          action="https://formspree.io/f/xvgaarze"
-          method="POST"
-          className="flex flex-col gap-4 max-w-md mx-auto"
-        >
-          <input
-            type="text"
-            name="subject"
-            placeholder="Title"
-            className="border border-huolongRed p-2 rounded-md focus:outline-none"
-            required
-          />
-          <textarea
-            name="message"
-            placeholder="Your message..."
-            className="border border-huolongRed p-2 rounded-md h-32 resize-none focus:outline-none"
-            required
-          ></textarea>
-          <button
-            type="submit"
-            className="bg-huolongRed text-white py-2 px-4 rounded hover:opacity-90 transition font-pixel"
+      <h1 className="font-pixel text-[16px] text-brandMagenta">CONTACT</h1>
+
+      <div className="mt-8 grid md:grid-cols-2 gap-6">
+        <PixelCard>
+          <h2 className="font-pixel text-[12px]">MESSAGE</h2>
+
+          <form
+            action="https://formspree.io/f/xvgaarze"
+            method="POST"
+            className="mt-6 flex flex-col gap-4"
           >
-            Enviar
-          </button>
-        </form>
-      </section>
-    </div>
+            <input
+              name="name"
+              placeholder="Your name"
+              className="border-2 border-brandBlack shadow-pixel p-3 bg-brandCream focus:outline-none"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email"
+              className="border-2 border-brandBlack shadow-pixel p-3 bg-brandCream focus:outline-none"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Describe your app (goal, screens, timeline)"
+              className="border-2 border-brandBlack shadow-pixel p-3 bg-brandCream h-36 resize-none focus:outline-none"
+              required
+            />
+
+            <PixelButton type="submit" variant="primary">
+              SEND
+            </PixelButton>
+          </form>
+        </PixelCard>
+
+        <PixelCard>
+          <h2 className="font-pixel text-[12px]">SHORTCUTS</h2>
+
+          <div className="mt-6 grid gap-3">
+            <PixelButton
+              as="a"
+              href="https://wa.me/5538988645180"
+              target="_blank"
+              rel="noreferrer"
+              variant="primary"
+            >
+              WHATSAPP
+            </PixelButton>
+
+            <PixelButton
+              as="a"
+              href="https://www.linkedin.com/in/vitordiamantino/"
+              target="_blank"
+              rel="noreferrer"
+              variant="ghost"
+            >
+              LINKEDIN
+            </PixelButton>
+
+            <PixelButton
+              as="a"
+              href="https://www.instagram.com/diamantino.gg"
+              target="_blank"
+              rel="noreferrer"
+              variant="ghost"
+            >
+              INSTAGRAM
+            </PixelButton>
+          </div>
+        </PixelCard>
+      </div>
+    </>
   );
 }
-
-export default Contact;

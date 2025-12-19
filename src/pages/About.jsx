@@ -1,33 +1,40 @@
 import React from "react";
+import { Helmet } from "react-helmet";
+import { PixelCard } from "../components/PixelCard";
 
-function About() {
+export default function About() {
   return (
-    <div className="max-w-3xl mx-auto px-4 text-center my-12">
-      <section>
-        <h2 className="text-2xl text-huolongRed font-pixel mb-4">About Us</h2>
-        <p className="text-base mb-6">
-          Huolong Studios is an indie game studio with big dreams and bold
-          ideas. Our main engine is Unity, which we combine with tools like
-          Trello, Photoshop, and web technologies to bring our visions to life.
-          We focus on mobile games for the PlayStore, aiming to create titles
-          that are both innovative and emotionally impactful.
-        </p>
-        <p className="text-base mb-6">
-          Our current project, <strong>Bedbound</strong>, follows the haunting
-          story of two elderly sisters — one bedridden, the other uncovering a
-          sinister mystery within a hospital. With a rich narrative and
-          atmospheric tension, it reflects our love for storytelling in the
-          style of great studios like Playdead and Tarsier.
-        </p>
-        <p className="text-base">
-          Though we're a small team with limited resources, our creativity,
-          dedication, and admiration for meaningful storytelling push us
-          forward. This is just the beginning of our journey — and we’re excited
-          to take you with us.
-        </p>
-      </section>
-    </div>
+    <>
+      <Helmet>
+        <title>About | Huolong Apps</title>
+        <meta
+          name="description"
+          content="About Huolong Apps and our approach to building mobile products."
+        />
+      </Helmet>
+
+      <h1 className="font-pixel text-[16px] text-brandMagenta">ABOUT</h1>
+
+      <div className="mt-8 grid gap-6">
+        <PixelCard>
+          <h2 className="font-pixel text-[12px]">FOCUS</h2>
+          <p className="mt-4">
+            Huolong Apps is focused on Android and iOS mobile development. Less
+            noise, more delivery: clean code, performance, and long-term
+            maintainability.
+          </p>
+        </PixelCard>
+
+        <PixelCard>
+          <h2 className="font-pixel text-[12px]">HOW WE WORK</h2>
+          <ul className="mt-4 list-disc pl-5 space-y-2">
+            <li>Clear scope definition (MVP first)</li>
+            <li>Simple, scalable architecture</li>
+            <li>Iterative delivery with fast adjustments</li>
+            <li>Release and maintenance</li>
+          </ul>
+        </PixelCard>
+      </div>
+    </>
   );
 }
-
-export default About;

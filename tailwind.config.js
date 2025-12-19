@@ -1,13 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      fontFamily: {
-        pixel: ['"Press Start 2P"', "cursive"],
-      },
       colors: {
-        huolongRed: "#ff0000",
+        brandCream: "#FFFBDE",
+        brandMagenta: "#F267FF",
+        brandBlack: "#000000",
+      },
+      fontFamily: {
+        pixel: ['"Press Start 2P"', "ui-monospace", "monospace"],
+      },
+      boxShadow: {
+        pixel: "4px 4px 0 #000000",
       },
     },
   },
