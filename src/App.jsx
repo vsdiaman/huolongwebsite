@@ -7,6 +7,8 @@ import Services from "./pages/Services";
 import Projects from "./pages/Projects";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Project from "./pages/Project";
+import ProjectPrivacyPolicy from "./pages/ProjectPrivacyPolicy";
 
 export default function App() {
   return (
@@ -15,9 +17,14 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/projects" element={<Projects />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/projects" element={<Projects />} />
+      <Route path="/projects/:projectSlug" element={<Project />} />
+      <Route
+        path="/projects/:projectSlug/privacy-policy"
+        element={<ProjectPrivacyPolicy />}
+      />
         </Routes>
       </Layout>
     </BrowserRouter>

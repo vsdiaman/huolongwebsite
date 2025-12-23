@@ -1,8 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import { PixelCard } from "../components/PixelCard";
-
-const PROJECTS = [];
+import { PROJECTS } from "../data/projects";
+import { StoreBadges } from "../components/StoreBadges";
 
 export default function Projects() {
   const hasProjects = PROJECTS.length > 0;
@@ -34,8 +35,12 @@ export default function Projects() {
       ) : (
         <div className="mt-8 grid md:grid-cols-3 gap-6">
           {PROJECTS.map((project) => (
-            <PixelCard key={project.title}>
-              <h2 className="font-pixel text-[12px]">{project.title}</h2>
+            <PixelCard key={project.slug}>
+              <div className="flex items-start justify-between gap-3">
+                <h2 className="font-pixel text-[12px]">{project.title}</h2>
+                <StoreBadges storeLinks={project.storeLinks} />
+              </div>
+
               <p className="mt-4">{project.desc}</p>
 
               <div className="mt-4 flex flex-wrap gap-2">
@@ -47,6 +52,22 @@ export default function Projects() {
                     {tag}
                   </span>
                 ))}
+              </div>
+
+              <div className="mt-6 flex gap-3">
+                <Link
+                  to={`/projects/${project.slug}`}
+                  className="border-2 border-brandBlack shadow-pixel px-3 py-2 font-pixel text-[10px]"
+                >
+                  VIEW
+                </Link>
+
+                <Link
+                  to={`/projects/${project.slug}/privacy-policy`}
+                  className="border-2 border-brandBlack shadow-pixel px-3 py-2 font-pixel text-[10px]"
+                >
+                  PRIVACY POLICY
+                </Link>
               </div>
             </PixelCard>
           ))}
