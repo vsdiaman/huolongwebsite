@@ -55,12 +55,24 @@ export default function Projects() {
               </div>
 
               <div className="mt-6 flex gap-3">
-                <Link
-                  to={`/projects/${project.slug}`}
+                <a
+                  href={
+                    project.storeLinks.googlePlay ||
+                    project.storeLinks.appStore ||
+                    "#"
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="border-2 border-brandBlack shadow-pixel px-3 py-2 font-pixel text-[10px]"
+                  onClick={(e) => {
+                    const url =
+                      project.storeLinks.googlePlay ||
+                      project.storeLinks.appStore;
+                    if (!url) e.preventDefault();
+                  }}
                 >
                   VIEW
-                </Link>
+                </a>
 
                 <Link
                   to={`/projects/${project.slug}/privacy-policy`}
